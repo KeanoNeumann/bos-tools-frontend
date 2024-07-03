@@ -1,10 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: [
-    "@nuxtjs/tailwindcss",
-    "@nuxtjs/device",
-  ],
+  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/device", "nuxt-auth-sanctum"],
   css: [
     "vuetify/lib/styles/main.sass",
     "@mdi/font/css/materialdesignicons.min.css",
@@ -24,6 +21,9 @@ export default defineNuxtConfig({
       },
     },
   },
+  sanctum: {
+    baseUrl: 'http://localhost:8000', // Laravel API
+},
   app: {
     head: {
       titleTemplate: '%s - Firefighter Connect',

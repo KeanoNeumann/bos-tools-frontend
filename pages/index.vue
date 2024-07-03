@@ -22,7 +22,8 @@
         >
           <v-row align="center">
             <v-col class="grow">
-              <strong>Einsatzalarm:</strong> Großbrand in Industriegebiet Nord. Alle verfügbaren Einheiten alarmiert.
+              <strong>Einsatzalarm:</strong> Großbrand in Industriegebiet Nord.
+              Alle verfügbaren Einheiten alarmiert.
             </v-col>
             <v-col class="shrink">
               <v-btn color="warning">Details anzeigen</v-btn>
@@ -34,7 +35,13 @@
 
     <!-- Quick Stats Section -->
     <v-row>
-      <v-col v-for="stat in quickStats" :key="stat.title" cols="12" sm="6" md="3">
+      <v-col
+        v-for="stat in quickStats"
+        :key="stat.title"
+        cols="12"
+        sm="6"
+        md="3"
+      >
         <v-card :color="stat.color" dark>
           <v-card-text>
             <div class="text-h4 font-weight-bold">{{ stat.value }}</div>
@@ -83,7 +90,11 @@
         <v-card class="mb-6">
           <v-card-title class="headline">Schnellzugriff</v-card-title>
           <v-list>
-            <v-list-item v-for="link in quickLinks" :key="link.title" :to="link.to">
+            <v-list-item
+              v-for="link in quickLinks"
+              :key="link.title"
+              :to="link.to"
+            >
               <template v-slot:prepend>
                 <v-icon :icon="link.icon"></v-icon>
               </template>
@@ -118,33 +129,75 @@
 <script setup>
 definePageMeta({
   layout: "app",
+  middleware: ["sanctum:auth"],
 });
 
 const quickStats = [
-  { title: 'Aktive Einsatzkräfte', value: '157', color: 'primary' },
-  { title: 'Einsatzfahrzeuge', value: '23', color: 'secondary' },
-  { title: 'Laufende Einsätze', value: '3', color: 'warning' },
-  { title: 'Ausbildungsstunden', value: '1.240', color: 'success' },
-]
+  { title: "Aktive Einsatzkräfte", value: "157", color: "primary" },
+  { title: "Einsatzfahrzeuge", value: "23", color: "secondary" },
+  { title: "Laufende Einsätze", value: "3", color: "warning" },
+  { title: "Ausbildungsstunden", value: "1.240", color: "success" },
+];
 
 const latestUpdates = [
-  { id: 1, title: 'Neue Ausrüstung eingetroffen', content: 'Neue Atemschutzgeräte und Schutzkleidung wurden geliefert.', time: 'Vor 2 Stunden', color: 'green' },
-  { id: 2, title: 'Schulung geplant', content: 'Pflichtschulung zur Einsatztaktik für nächste Woche angesetzt.', time: 'Vor 5 Stunden', color: 'blue' },
-  { id: 3, title: 'Fahrzeugwartung abgeschlossen', content: 'Routinewartung des Löschfahrzeugs LF 20 erfolgreich durchgeführt.', time: 'Gestern', color: 'orange' },
-]
+  {
+    id: 1,
+    title: "Neue Ausrüstung eingetroffen",
+    content: "Neue Atemschutzgeräte und Schutzkleidung wurden geliefert.",
+    time: "Vor 2 Stunden",
+    color: "green",
+  },
+  {
+    id: 2,
+    title: "Schulung geplant",
+    content: "Pflichtschulung zur Einsatztaktik für nächste Woche angesetzt.",
+    time: "Vor 5 Stunden",
+    color: "blue",
+  },
+  {
+    id: 3,
+    title: "Fahrzeugwartung abgeschlossen",
+    content:
+      "Routinewartung des Löschfahrzeugs LF 20 erfolgreich durchgeführt.",
+    time: "Gestern",
+    color: "orange",
+  },
+];
 
 const quickLinks = [
-  { title: 'Dienstplan', icon: 'mdi-calendar-clock', to: '/dienstplan' },
-  { title: 'Ausrüstungsverwaltung', icon: 'mdi-toolbox', to: '/ausruestung' },
-  { title: 'Einsatzberichte', icon: 'mdi-file-document', to: '/einsatzberichte' },
-  { title: 'Ausbildungsmodule', icon: 'mdi-school', to: '/ausbildung' },
-]
+  { title: "Dienstplan", icon: "mdi-calendar-clock", to: "/dienstplan" },
+  { title: "Ausrüstungsverwaltung", icon: "mdi-toolbox", to: "/ausruestung" },
+  {
+    title: "Einsatzberichte",
+    icon: "mdi-file-document",
+    to: "/einsatzberichte",
+  },
+  { title: "Ausbildungsmodule", icon: "mdi-school", to: "/ausbildung" },
+];
 
 const upcomingEvents = [
-  { id: 1, title: 'Atemschutzübung', date: '15', time: '09:00 Uhr', color: 'primary' },
-  { id: 2, title: 'Führungskräftebesprechung', date: '22', time: '14:00 Uhr', color: 'secondary' },
-  { id: 3, title: 'Fahrzeugüberprüfung', date: '30', time: '10:00 Uhr', color: 'success' },
-]
+  {
+    id: 1,
+    title: "Atemschutzübung",
+    date: "15",
+    time: "09:00 Uhr",
+    color: "primary",
+  },
+  {
+    id: 2,
+    title: "Führungskräftebesprechung",
+    date: "22",
+    time: "14:00 Uhr",
+    color: "secondary",
+  },
+  {
+    id: 3,
+    title: "Fahrzeugüberprüfung",
+    date: "30",
+    time: "10:00 Uhr",
+    color: "success",
+  },
+];
 </script>
 
 <style scoped>
