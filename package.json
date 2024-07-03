@@ -1,0 +1,24 @@
+{
+  "name": "bos-tools-verwaltungsplattform",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@mdi/font": "^7.4.47",
+    "@nuxtjs/device": "^3.1.1",
+    "@nuxtjs/tailwindcss": "^6.12.0",
+    "sass": "^1.77.4",
+    "vue": "^3.4.27",
+    "vue-router": "^4.3.2",
+    "vuetify": "^3.6.8"
+  },
+  "devDependencies": {
+    "nuxt": "^3.12.2"
+  }
+}
