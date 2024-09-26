@@ -104,7 +104,6 @@ const alarms = ref([
     description: "Verkehrsunfall",
     status: "Abgeschlossen",
   },
-  // Add more mock data as needed
 ]);
 
 const filteredAlarms = computed(() => {

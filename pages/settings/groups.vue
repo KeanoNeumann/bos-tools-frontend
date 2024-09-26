@@ -243,7 +243,6 @@ async function saveItem() {
   try {
     loading.value = true;
     if (editedIndex.value > -1) {
-      // Gruppe aktualisieren
       await client(`/api/group/${editedItem.value.id}`, {
         method: "POST",
         body: editedItem.value,
@@ -251,7 +250,6 @@ async function saveItem() {
       Object.assign(groups.value[editedIndex.value], editedItem.value);
       showToast("Gruppe erfolgreich aktualisiert", "success");
     } else {
-      // Neue Gruppe erstellen
       const response = await client(`/api/group`, {
         method: "PUT",
         body: {

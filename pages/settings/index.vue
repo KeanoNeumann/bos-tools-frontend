@@ -143,7 +143,6 @@ const changePage = async (setting) => {
     navigateTo(setting.route);
   } else {
     console.log("This setting is currently disabled");
-    // Optional: Zeigen Sie hier eine Benachrichtigung an, dass die Einstellung nicht verfügbar ist
   }
 };
 </script>
