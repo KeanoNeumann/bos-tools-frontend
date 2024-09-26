@@ -22,7 +22,7 @@ export default defineNuxtConfig({
     },
   },
   sanctum: {
-    baseUrl: 'http://localhost:8000', // Laravel API
+    baseUrl: process.env.NUXT_BASE_URL, // Laravel API
 },
   app: {
     head: {
@@ -38,4 +38,10 @@ export default defineNuxtConfig({
       ],
     },
   },
+  runtimeConfig: {
+    public: {
+      baseUrl: 'http://localhost:8000', 
+      apiUrl: 'http://localhost:8000/api', 
+    }
+  }
 })
