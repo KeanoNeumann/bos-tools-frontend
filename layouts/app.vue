@@ -111,9 +111,7 @@ const logout = () => {
   navigateTo("/login");
 };
 
-onMounted(() => {
-  // Any client-side only logic can go here
-});
+onMounted(() => {});
 </script>
 
 <style scoped>
